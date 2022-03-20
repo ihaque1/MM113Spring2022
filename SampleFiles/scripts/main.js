@@ -12,8 +12,9 @@ const modifyText = () => {
   //Changes the text of message 2 class to be the handle from the StarTrekTweet object
   // YOUR CODE BELOW THIS LINE.
  
-
-
+document.getElementById("message2").innerHTML = StarTrekTweet.text;
+document.getElementById("link2").innerHTML = StarTrekTweet.name;
+document.getElementById("user2").innerHTML = StarTrekTweet.handle;
 
 }
 
@@ -22,7 +23,9 @@ const changeLinkAndImageAttributes = function() {
   //Sets the href attribute for link2 to point to the second element in the links array
   //Sets the src attribute for the Ohlone image to point to the third element in the links array
   // YOUR CODE BELOW THIS LINE.
-  
+  document.getElementById("link1").href = links[0];
+  document.getElementById("link2").href = links[1];
+  document.getElementById("Ohlone").src = links[2];
 
 
 }
@@ -32,7 +35,8 @@ const changeClassAttribute = () => {
   //function so that it replaces the “tweet” class with the “tweet-pink” class for the two tweets.
   // change id="tweet1" class="tweet" to id="tweet1" class="tweet-pink"
   // YOUR CODE BELOW THIS LINE
-  
+  document.getElementById("tweet1").classList.replace("tweet","tweet-pink");
+  document.getElementById("tweet2").classList.replace("tweet","tweet-pink");
   
 }
 
@@ -44,5 +48,15 @@ const appendElements = () => {
   //id="tweet1"
   // YOUR CODE BELOW THIS LINE
 const newLink = document.createElement ('a');
+newLink.innerHTML = "Intro to JavaScript.";
+// newLink.src = 'images/Fascinating.jpg';
+newLink.setAttribute('href',"http://www.ohlone.edu");
+const imageElement = document.createElement('img');
+imageElement.src = "images/Fascinating.jpg";
+const breakElement = document.createElement('br');
+
+document.getElementById("tweet1").appendChild(newLink);
+document.getElementById("tweet1").appendChild(breakElement);
+document.getElementById("tweet1").appendChild(imageElement);
     
 }

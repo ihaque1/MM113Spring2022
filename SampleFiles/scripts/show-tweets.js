@@ -9,17 +9,22 @@ const tweet1 = () => {
 const tweet2 = () => {
     //TODO: output the contents of the second tweet below the first one:
 
+    // document.querySelector('#tweet3 .message').innerHTML = tweets.statuses[0].text
+    // document.querySelector('#tweet3 .username').innerHTML = tweets.statuses[0].user.screen_name
+    // document.querySelector('#tweet3 .date').innerHTML = tweets.statuses[0].created_at
+    tweet1();
     document.querySelector('#tweet2 .message').innerHTML = tweets.statuses[1].text
     document.querySelector('#tweet2 .username').innerHTML = tweets.statuses[1].user.screen_name
     document.querySelector('#tweet2 .date').innerHTML = tweets.statuses[1].created_at
 
 }
 
-const tweet3 = () => {
-    //TODO: output the contents of the third tweet below the second one:
-    document.querySelector('#tweet1 .message').innerHTML = tweets.statuses[2].text
-    document.querySelector('#tweet1 .username').innerHTML = tweets.statuses[2].user.screen_name
-    document.querySelector('#tweet1 .date').innerHTML = tweets.statuses[2].created_at
+function tweet3() {
+  //TODO: output the contents of the third tweet below the second one:
+  tweet2()
+  document.querySelector('#tweet1 .message').innerHTML = tweets.statuses[2].text
+  document.querySelector('#tweet1 .username').innerHTML = tweets.statuses[2].user.screen_name
+  document.querySelector('#tweet1 .date').innerHTML = tweets.statuses[2].created_at
 }
 
 const showAll = () => {
@@ -31,10 +36,14 @@ const showAll = () => {
       newDiv = document.createElement('div')
       //div container variable with class
       newDiv.className = "twitterClassOne"
+      newDiv.setAttribute('style',"text-align: right;")
+      
       //TextNode objects contain only text content without any HTML or XML markup.
       
       var textWrapper = document.createElement('div');
         textWrapper.className = "textClass"
+        textWrapper.setAttribute('style',"text-align: right;")
+        
       
       var textObject = document.createTextNode(tweets.statuses[i].text)
       textWrapper.appendChild(textObject);
@@ -42,6 +51,7 @@ const showAll = () => {
       
       var userWrapper = document.createElement('div');
       userWrapper.className = "UserClass"
+      
       
       var userObject = document.createTextNode(tweets.statuses[i].user.screen_name)
       userWrapper.appendChild(userObject);
